@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rancho&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-raleway: "Raleway", sans-serif;
+  --font-rancho: "Rancho", cursive;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #331a15;
+}
