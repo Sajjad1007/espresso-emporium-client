@@ -25,16 +25,13 @@ const UpdateCoffee = () => {
     const formData = new FormData(form);
     const updatedCoffee = Object.fromEntries(formData.entries());
 
-    fetch(
-      `https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/coffees/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedCoffee),
-      }
-    )
+    fetch(`https://espresso-emporium-server-l75z.onrender.com/coffees/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedCoffee),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

@@ -14,16 +14,13 @@ const AddCoffee = () => {
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
 
-    fetch(
-      "https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/coffees",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newCoffee),
-      }
-    )
+    fetch("https://espresso-emporium-server-l75z.onrender.com/coffees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {

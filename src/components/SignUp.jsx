@@ -17,16 +17,13 @@ const SignUp = () => {
     const newUser = { email, ...restOfTheForm };
     createUser(email, password)
       .then(() => {
-        fetch(
-          "https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/users",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newUser),
-          }
-        )
+        fetch("https://espresso-emporium-server-l75z.onrender.com/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {
@@ -36,7 +33,7 @@ const SignUp = () => {
                 draggable: true,
               });
             }
-            navigate("/sign-in");
+            navigate("/");
           });
       })
       .catch(() => {

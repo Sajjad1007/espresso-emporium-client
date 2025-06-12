@@ -9,21 +9,19 @@ import CoffeeDetails from "./components/CoffeeDetails";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import AuthProvider from "./contexts/AuthProvider";
-import Error from "./components/Error";
+import ErrorPage from "./components/ErrorPage";
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
         Component: Home,
-        loader: () =>
-          fetch(
-            "https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/coffees"
-          ),
+        loader: () => fetch("https://espresso-emporium-server-l75z.onrender.com/coffees"),
         hydrateFallbackElement: (
           <div className="grid place-content-center w-full min-h-[calc(100vh-68px)]">
             <span className="loading loading-dots loading-xl"></span>
@@ -38,9 +36,7 @@ const router = createBrowserRouter([
         path: "update-coffee/:id",
         Component: UpdateCoffee,
         loader: ({ params }) =>
-          fetch(
-            `https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/coffees/${params.id}`
-          ),
+          fetch(`https://espresso-emporium-server-l75z.onrender.com/coffees/${params.id}`),
         hydrateFallbackElement: (
           <div className="grid place-content-center w-full min-h-[calc(100vh-68px)]">
             <span className="loading loading-dots loading-xl"></span>
@@ -51,9 +47,7 @@ const router = createBrowserRouter([
         path: "coffee/:id",
         Component: CoffeeDetails,
         loader: ({ params }) =>
-          fetch(
-            `https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/coffees/${params.id}`
-          ),
+          fetch(`https://espresso-emporium-server-l75z.onrender.com/coffees/${params.id}`),
         hydrateFallbackElement: (
           <div className="grid place-content-center w-full min-h-[calc(100vh-68px)]">
             <span className="loading loading-dots loading-xl"></span>
@@ -69,10 +63,6 @@ const router = createBrowserRouter([
         Component: SignUp,
       },
     ],
-  },
-  {
-    path: "/*",
-    Component: Error,
   },
 ]);
 

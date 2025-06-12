@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCkQIljdWtJ6tsatKrQ5Cy2yowKNMGmtsI",
-  authDomain: "espresso-emporium-d2ea2.firebaseapp.com",
-  projectId: "espresso-emporium-d2ea2",
-  storageBucket: "espresso-emporium-d2ea2.firebasestorage.app",
-  messagingSenderId: "655887079944",
-  appId: "1:655887079944:web:7ee10db57ac5f5173ccfbd",
+  apiKey: "AIzaSyDNmfPMiLCWQBKglESODbCzjCZ4m9JoV78",
+  authDomain: "espresso-emporium-45b1f.firebaseapp.com",
+  projectId: "espresso-emporium-45b1f",
+  storageBucket: "espresso-emporium-45b1f.firebasestorage.app",
+  messagingSenderId: "442632757810",
+  appId: "1:442632757810:web:99dd3b4823f543d9ced22b",
 };
 
 // Initialize Firebase

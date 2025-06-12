@@ -2,7 +2,7 @@ import error from "../assets/404.gif";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Error = () => {
+const ErrorPage = () => {
   return (
     <div>
       <Navbar />
@@ -16,4 +16,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorPage;

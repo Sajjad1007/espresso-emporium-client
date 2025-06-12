@@ -1,20 +1,33 @@
 import { use } from "react";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../contexts/AuthContext";
 import backgroundNavbar from "../assets/more/18.jpg";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn, signOutUser } = use(AuthContext);
 
   const handleSignOut = () => {
-    signOutUser();
     Swal.fire({
-      title: "You have signed out successfully!",
-      icon: "success",
-      draggable: true,
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "You have signed out successfully!",
+          icon: "success",
+          draggable: true,
+        });
+        signOutUser();
+        navigate("/sign-in");
+        setIsLoggedIn(false);
+      }
     });
-    setIsLoggedIn(false);
   };
 
   return (
@@ -28,13 +41,12 @@ const Header = () => {
         </div>
         <div>
           {isLoggedIn && (
-            <Link
-              to={"/sign-in"}
+            <button
               onClick={handleSignOut}
               className="btn bg-[#e3b577] hover:bg-transparent font-rancho font-semibold w-fit text-lg border-[#e3b577] hover:border-white hover:text-white shadow-none"
             >
               Sign Out
-            </Link>
+            </button>
           )}
         </div>
       </nav>

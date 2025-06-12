@@ -19,7 +19,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://espresso-emporium-server-6xb3fu8f6-sajjad1007s-projects.vercel.app/coffees/${_id}`,
+          `https://espresso-emporium-server-l75z.onrender.com/coffees/${_id}`,
           {
             method: "DELETE",
           }
